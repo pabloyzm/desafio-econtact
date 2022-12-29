@@ -6,7 +6,7 @@
 1. Clonarse este repositorio en su computadora
 2. Crear en tu propia cuenta de GitHub un repositorio y enlazarlo con la carpeta clonada
 3. Empezar a realizar el desafío!
-4. Tendrán hasta el día 
+4. Tendrán hasta el día Miércoles 11/01/2023 a las 23:59hs
 4. Recomendación: ir actualizando su repositorio a medida que van avanzando.
 ### Cualquier consulta pueden realizarla por teams
 
