@@ -1,0 +1,394 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    margin: 0;
+}
+
+
+.Introduccion,
+.up,
+.down,
+.main,
+.content,
+.footer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#titulo {
+    padding: 15px;
+    background-color: #1177b5;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    text-shadow: black 1px 1px 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#subTitulo{
+    color: white;
+}
+
+#subtitulo\ 2{
+    color:  #1177b5;
+}
+
+.full-container{
+    background-color: #1FA591;
+    width: 100%;
+    margin : 0 auto;
+    text-align: center;
+
+
+}
+
+.main-plus-seq {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+  width: 80%;
+margin: 4rem 0;
+
+}
+
+.main {
+    margin: 0;
+}
+
+/* Añade la propiedad justify-content: center al elemento .main #up */
+.main #up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Añade la regla .main al selector de #up .left h2 */
+.main #up .left h2 {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Añade la regla .main al selector de #up .right img */
+.main #up .right img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/* make hr style cool  */
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+
+}
+
+#down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Añade un espaciado debajo del div down */
+#down + .sequence {
+  margin-top: 20px;
+  justify-content: center;
+  /* Establece una altura fija para el div sequence */
+  /*height: 220px; */
+
+}
+
+
+/* Estiliza los divs box */
+.sequence .box {
+  background-color: #1177b5;
+  /* Añade un ancho y un alto iguales para hacer que las cajas sean cuadradas */
+  width: 50%;
+  /* Añade un margen entre cada div box */
+  margin: 0 10px;
+   /* Añade un espaciado alrededor de cada caja */
+  padding: 20px;
+  /* Utiliza la propiedad display: flex para alinear los elementos h3 y p en una misma fila */
+  display: flex;
+  /* contenido en columnas */
+  flex-direction: column;
+    /* haz que el div tenga esquinas redondeadas */
+    border-radius: 10px;
+
+
+}
+
+.sequence .box button{
+    border-radius: 10px;
+}
+
+/* Estiliza el contenido dentro de los divs box */
+.sequence h3,
+.sequence p {
+  color: white;
+  text-align: center;
+}
+
+/* Añade la propiedad flex-wrap: wrap al elemento .sequence para que los divs .box se envuelvan en una nueva fila cuando no haya suficiente espacio en la misma fila */
+.sequence {
+  display: flex;
+  justify-content: center;
+}
+
+
+.meta-plus-contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  width: 75%;
+}
+
+.meta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: #1FA591;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+    color: white;
+}
+
+.meta .content{
+    display: block;
+    flex-direction: column;
+
+}
+
+.meta .content button{
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    color: #1177b5;
+    border: none;
+    border-radius: 10px;
+}
+
+.content-contacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.logo {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.logo img{
+    width: 100px;
+}
+
+.contacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: #1177b5;
+
+}
+
+
+.contactos {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+}
+
+.contactos h3{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contactos ul {
+    display: flex;
+  flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconos .icono {
+    margin: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.iconos .icono img {
+    width: 100%;
+}
+
+#face-icon {
+    width: 37px;
+}
+#face-img{
+    position: relative;
+    margin: 4px 0;
+}
+
+
+
+
+
+@media (max-width: 850px) {
+
+
+    /* Muestra las cajas en una sola columna */
+    .sequence {
+
+    flex-direction: column;
+    align-items: center;
+    }
+    .sequence .box{
+    margin: 20px;
+    }
+
+    #notebook-img{
+    width: 0;
+    visibility: hidden;
+    transition: all 0.05s ease-in-out;
+    }
+
+    .contacto{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content-contacto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    }
+
+    .footer{
+    text-align: center;
+    background-color: #cccccc;
+    width: 100%;
+    margin: 0;
+}
+
+.footer p{
+  margin: 0;
+}
+
+.sequence .box button{
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    color: #1177b5;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Side button with vertical text */
+.side-button {
+  position: fixed; /* Set the button to a fixed position on the page */
+  top: 75%; /* Position the button vertically in the center of the page */
+  right: 0; /* Position the button to the left of the page */
+  transform: translateY(-50%); /* Offset the button vertically by half its height to center it */
+  display: flex; /* Set the button to a flex container */
+  flex-direction: column; /* Set the direction of the flex items (in this case, the text) to column */
+  align-items: center; /* Align the flex items (in this case, the text) to the center */
+  background-color: #000; /* Set the background color of the button */
+  color: #fff; /* Set the color of the text */
+  padding: 10px; /* Add some padding to the button */
+}
+
+.side-button p {
+  margin: 0; /* Remove the default margin from the p element */
+  writing-mode: vertical-rl; /* Set the writing mode of the text to vertical */
+  text-orientation: mixed; /* Set the orientation of the text to mixed */
+}
+
+/* Chat window */
+.chat-window {
+    position: fixed; /* Set the chat window to a fixed position on the page */
+    bottom: 0; /* Position the chat window at the bottom of the page */
+    right: 0; /* Position the chat window to the right of the page */
+    width: 300px; /* Set the width of the chat window */
+    background-color: #fff; /* Set the background color of the chat window */
+    border: 1px solid #ccc; /* Add a border to the chat window */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add a drop shadow to the chat window */
+    z-index: 998; /* Set the z-index of the chat window to a high value */
+}
+
+.chat-header {
+  display: flex; /* Set the chat header to a flex container */
+  justify-content: space-between; /* Align the elements within the chat header to the right and left */
+  align-items: center; /* Align the elements within the chat header to the center */
+  background-color: #f5f5f5; /* Set the background color of the chat header */
+  padding: 10px; /* Add some padding to the chat header */
+}
+
+.chat-header h3 {
+  margin: 0; /* Remove the default margin from the h3 element */
+}
+
+.close-button {
+  background-color: transparent; /* Remove the default background color of the button */
+  border: 0; /* Remove the default border from the button */
+  font-size: 18px; /* Increase the font size of the button */
+  color: #777; /* Set the color of the button */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+}
+
+.chat-messages {
+  height: 200px; /* Set the height of the chat messages container */
+  overflow-y: scroll; /* Add a scrollbar to the chat messages container */
+  padding: 10px; /* Add some padding to the chat messages container */
+}
+
+.chat-messages p{
+    margin: 0; /* Remove the default margin from the p element */
+    z-index: 999;
+}
+
+.chat-input {
+  display: flex; /* Set the chat input to a flex container */
+  align-items: center; /* Align the elements within the chat input to the center */
+  padding: 10px; /* Add some padding to the chat input */
+}
+
+.chat-input input {
+  flex: 1; /* Set the input to take up all remaining space within the chat input */
+  border: 1px solid #ccc; /* Add a border to the input */
+  padding: 10px; /* Add some padding to the input */
+  font-size: 14px; /* Set the font size of the input */
+}
+
+.chat-input button {
+  background-color: #4caf50; /* Set the background color of the button */
+  color: #fff; /* Set the color of the button */
+  border: 0; /* Remove the default border from the button */
+  padding: 10px; /* Add some padding to the button */
+  font-size: 14px; /* Set the font size of the button */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+}

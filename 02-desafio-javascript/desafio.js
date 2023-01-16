@@ -50,14 +50,32 @@ const objetoFijo = {
  *? RECORDATORIO: al leer la sentencia "return" termina la ejecución de la función.
  */
 
-function largoDelNombre(nombre = "") {}
+function largoDelNombre(nombre = "") {
+    if (typeof nombre !== "string") {
+        return "El parámetro recibido es invalido";
+    }
+    if (nombre.length > 0 && nombre.length <= 5) {
+        return `Es un nombre corto. Su largo es de: ${nombre.length}`;
+    }
+    if (nombre.length >= 11) {
+        return `Es un nombre largo. Su largo es de: ${nombre.length}`;
+    }
+}
 //! =======================================================================================================================================================
 
 /**
  *? EJERCICIO 2: Crear una función que reciba un arreglo como parámetro y cuente cuantos valores de tipo "number" se encuentran dentro de dicho arreglo
  */
 
-function contarTipoNumber(arreglo = []) {}
+function contarTipoNumber(arreglo = []) {
+    let contador = 0;
+    for (let i = 0; i < arreglo.length; i++) {
+        if (typeof arreglo[i] === "number") {
+            contador++;
+        }
+    }
+    return contador;
+}
 //! =======================================================================================================================================================
 
 /**
@@ -66,7 +84,16 @@ function contarTipoNumber(arreglo = []) {}
  *? NOTA: Desestructurar los valores del objeto antes de utilizarlos
  */
 
-function datosPersona(persona = {}) {}
+function datosPersona(persona = {}) {
+    // se obtienen los parametros
+    try {
+        const {nombre, edad, altura} = persona;
+        return `Esta persona se llama ${nombre}, tiene ${edad} años y su altura es de ${altura}`;
+    }
+    catch (error) {
+        return "El objeto recibido no es válido";
+    }
+}
 //! =======================================================================================================================================================
 
 /**
@@ -75,7 +102,18 @@ function datosPersona(persona = {}) {}
  *?
  */
 
-function obtenerCantidadDePares(numero1, numero2) {}
+function obtenerCantidadDePares(numero1, numero2) {
+    // definir un contador
+    let contador = 0;
+    // en un for loop incrementar el contador desde el numero1 al numero2
+    for (let i = numero1; i <= numero2; i++) {
+        // si el contador es par incrementar el contador
+        if (i % 2 === 0) {
+            contador++;
+        }
+    }
+    return `La cantidad de números pares obtenido fue de: ${contador}`;
+}
 //! =======================================================================================================================================================
 
 /**
@@ -86,7 +124,20 @@ function obtenerCantidadDePares(numero1, numero2) {}
  *?
  */
 
-function obtenerCantidadDeSedes(econtact = {}) {}
+function obtenerCantidadDeSedes(econtact = {}) {
+    try {
+        const { sedes } = econtact.datos;
+        try {
+            return Object.keys(sedes).length;
+        }
+        catch (error) {
+            return "El objeto sedes no es válido";
+        }
+    }
+    catch (error) {
+        return "El objeto recibido no es válido";
+    }
+}
 //! =======================================================================================================================================================
 
 /**
@@ -94,7 +145,18 @@ function obtenerCantidadDeSedes(econtact = {}) {}
  *? Validar al inicio de la función si el teléfono de Perú existe. Caso contrario retornar un string que diga "Perú no tiene asignado un teléfono"
  */
 
-function obtenerTelefonoPeru(econtact = {}) {}
+function obtenerTelefonoPeru(econtact = {}) {
+    try {
+        const { Peru } = econtact.datos.sedes;
+        if (Peru.telefono) {
+            return Peru.telefono;
+        }
+        return "Perú no tiene asignado un teléfono";
+    }
+    catch (error) {
+        return "El objeto recibido no es válido";
+    }
+}
 //! =======================================================================================================================================================
 
 /**
@@ -102,7 +164,21 @@ function obtenerTelefonoPeru(econtact = {}) {}
  *?
  */
 
-function obtenerPaisesConTelefono(econtact = {}) {}
+function obtenerPaisesConTelefono(econtact = {}) {
+    try {
+        const { sedes } = econtact.datos;
+        let i = 0;
+        Object.keys(sedes).forEach((pais) => {
+            if (sedes[pais].telefono) {
+                i++;
+            }
+        });
+        return i;
+    }
+    catch (error) {
+        return "El objeto recibido no es válido";
+    }
+}
 //! =======================================================================================================================================================
 
 /**
@@ -116,7 +192,24 @@ function obtenerPaisesConTelefono(econtact = {}) {}
  *? En caso contrario, retornar un string con la frase "La operación matemática que intenta realizar es inexistente"
  */
 
-function calculoMatematico(operacion, numero1, numero2) {}
+function calculoMatematico(operacion, numero1, numero2) {
+    // la funcion switch evalua el valor de la variable operacion
+    // y ejecuta el codigo correspondiente
+    // si no se encuentra el valor de la variable operacion
+    // se ejecuta el codigo del default
+    switch (operacion) {
+        case "+":
+            return numero1 + numero2;
+        case "-":
+            return numero1 - numero2;
+        case "*":
+            return numero1 * numero2;
+        case "/":
+            return numero1 / numero2;
+        default:
+            return "La operación matemática que intenta realizar es inexistente";
+    }
+}
 //! =======================================================================================================================================================
 
 /**
@@ -126,7 +219,18 @@ function calculoMatematico(operacion, numero1, numero2) {}
  *? Ayuda: usar ciclo while y recordar el método "push" para ir agregando valores al arreglo
  */
 
-function cargarArreglo(numero) {}
+function cargarArreglo(numero) {
+    if (numero <= 0) {
+        return "El número ingresado debe ser mayor a 0";
+    }
+    let arreglo = [];
+    let i = numero;
+    while (i <= numero * 2) {
+        arreglo.push(i);
+        i++;
+    }
+    return arreglo;
+}
 //! =======================================================================================================================================================
 
 /**
@@ -135,7 +239,17 @@ function cargarArreglo(numero) {}
  *?  Ayuda: Usar el operador módulo (o resto) "%"
  */
 
-function divisiblesPorCinco(numeros = []) {}
+function obtenerCantidadDeMultiplosDe5(arreglo = []) {
+    let contador = 0;
+    arreglo.forEach((numero) => {
+        if (numero % 5 === 0) {
+            contador++;
+        }
+    });
+    return contador;
+}
+
+
 //! =======================================================================================================================================================
 
 /**
@@ -144,7 +258,14 @@ function divisiblesPorCinco(numeros = []) {}
  *?
  */
 
-function sumatoria(numeros = []) {}
+function sumatoria(numeros = []) {
+    let suma = 0;
+    numeros.forEach((numero) => {
+        suma += numero;
+    }
+    );
+    return suma;
+}
 //! =======================================================================================================================================================
 
 /**
@@ -153,7 +274,18 @@ function sumatoria(numeros = []) {}
  *? La función debe retornar True si son iguales, o False en caso de no ser iguales
  */
 
-function verificarCantidadEmpleados(econtact = {}) {}
+function verificarCantidadEmpleados(econtact = {}) {
+    // make an array with the employees of each country
+    const { sedes } = econtact.datos;
+    const empleados = Object.keys(sedes).map((pais) => {
+        return sedes[pais].empleados;
+    });
+    // use the function 'sumatoria' to calculate the total employees
+    const totalEmpleados = sumatoria(empleados);
+    // compare the total employees with the total employees of the object
+    return totalEmpleados === econtact.datos.empleados;
+
+}
 //! =======================================================================================================================================================
 
 /**
@@ -165,7 +297,11 @@ function verificarCantidadEmpleados(econtact = {}) {}
  *? console.log(Math.pow(5, 2))
  */
 
-function calcularCuadrados(arreglo = []) {}
+function calcularCuadrados(arreglo = []) {
+    return arreglo.map((numero) => {
+        return numero ** 2;
+    });
+}
 //! =======================================================================================================================================================
 
 /**
@@ -175,7 +311,12 @@ function calcularCuadrados(arreglo = []) {}
  *? Validar al inicio de la función que el arreglo cuente con la condición establecida. Si no cumple la misma, retornar False
  */
 
-function validarArreglo(numeros = []) {}
+function validarArreglo(numeros = []) {
+    if (numeros.length < 6) {
+        return false;
+    }
+    return sumatoria(numeros) > 100;
+}
 //! =======================================================================================================================================================
 
 /**
@@ -184,14 +325,23 @@ function validarArreglo(numeros = []) {}
  *? Recordar que Javascript es "Case Sensitive", es decir, distingue entre mayúsculas y minúsculas.
  */
 
-function validarNombre(nombres = [], nombre) {}
+function validarNombre(nombres = [], nombre) {
+    const nombresMayusculas = nombres.map((nombre) => {
+        return nombre.toUpperCase();
+    });
+    const nombreMayuscula = nombre.toUpperCase();
+    return nombresMayusculas.includes(nombreMayuscula);
+}
+
 //! =======================================================================================================================================================
 
 /**
  *? EJERCICIO 16: Crear una función que reciba 2 (dos) parámetros: un arreglo de números y número. La función debe retornar la posición de ese valor en el arreglo
  */
 
-function devolverPosicion(numeros = [], numero) {}
+function devolverPosicion(numeros = [], numero) {
+    return numeros.indexOf(numero);
+}
 //! =======================================================================================================================================================
 
 /**
@@ -199,7 +349,10 @@ function devolverPosicion(numeros = [], numero) {}
  *? dentro de los sectores de E-Contact. Caso contrario, retornar False
  */
 
-function verificarSector(econtact = {}, sector) {}
+function verificarSector(econtact = {}, sector) {
+    const { sectores } = econtact.datos;
+    return validarNombre(sectores, sector);
+}
 //! =======================================================================================================================================================
 
 /**
@@ -207,7 +360,14 @@ function verificarSector(econtact = {}, sector) {}
  *? La función debe retornar la cantidad de sedes que tengan una cantidad de empleados menor a la cantidad establecida como segundo parámetro.
  */
 
-function verificarCantidadEmpleados(econtact = {}, cantidad) {}
+function verificarCantidadEmpleados(econtact = {}, cantidad) {
+    const { sedes } = econtact.datos;
+    const cantidadSedes = Object.keys(sedes).filter((pais) => {
+        return sedes[pais].empleados < cantidad;
+    });
+    return cantidadSedes.length;
+}
+
 //! =======================================================================================================================================================
 
 /**
@@ -218,7 +378,9 @@ function verificarCantidadEmpleados(econtact = {}, cantidad) {}
  *?
  */
 
-function verificarClave(objeto = {}, clave) {}
+function verificarClave(objeto = {}, clave) {
+    return Object.keys(objeto).includes(clave);
+}
 //! =======================================================================================================================================================
 
 /**
@@ -226,4 +388,8 @@ function verificarClave(objeto = {}, clave) {}
  *? Recordatorio: al inicio hay un arreglo de numeros reales como ejemplo.
  */
 
-function quitarParteDecimal(arregloNumerosReales = []) {}
+function quitarParteDecimal(arregloNumerosReales = []) {
+    return arregloNumerosReales.map((numero) => {
+        return Math.trunc(numero);
+    });
+}
